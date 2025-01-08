@@ -32,7 +32,6 @@ function Sidebar() {
               />
             </li>
           ))}
-          {/* <li className="text-xs font-extralight text-slate-200 uppercase">Analytics</li> */}
         </ul>
       </div>
     </div>
