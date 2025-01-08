@@ -1,4 +1,4 @@
-// import SubPage1 from "./subPage1";
+import SubPage1 from "./SubPage1";
 import Subpage2 from "./Subpage2";
 import Subpage3 from "./Subpage3";
 
@@ -8,7 +8,7 @@ function Page1() {
   return (
     <div className="flex flex-col  flex-wrap ">
       
-      {/* <SubPage1/> */}
+      <SubPage1/>
       <Subpage2/>
       <Subpage3/>
       
