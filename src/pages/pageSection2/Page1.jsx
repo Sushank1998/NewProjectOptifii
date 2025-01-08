@@ -8,8 +8,8 @@ function Page1() {
   return (
     <div className="flex flex-col  flex-wrap ">
       
-      {/* <SubPage1/> */}
-      {/* <Subpage2/> */}
+      <SubPage1/>
+      <Subpage2/>
       <Subpage3/>
       
     </div>
