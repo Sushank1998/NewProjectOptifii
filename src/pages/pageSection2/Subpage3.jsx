@@ -2,10 +2,12 @@ import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/
 import { IoCloudUploadOutline } from "react-icons/io5";
 import HorizontalTimeline from "../PageSection/HorizontalTimeline";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Subpage3() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -95,6 +97,7 @@ function Subpage3() {
               setIsPopupOpen(false);
               console.log("Navigating to check status...");
               // Add navigation logic if needed
+              navigate("/subpage5");
             }}
           >
             Check Status

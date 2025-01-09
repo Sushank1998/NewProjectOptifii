@@ -2,16 +2,27 @@ import { useState } from "react";
 import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 import HorizontalTimeline from "../PageSection/HorizontalTimeline";
 import { CiCircleCheck } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 function Subpage2() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [inputData, setInputData] = useState('');
+
+  const navigate = useNavigate();
+
+  const handleInputChange = (event) => {
+    setInputData(event.target.value);
+  };
 
   const handleSaveAndProceed = () => {
     setIsModalOpen(true);
+    console.log(inputData);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
+    navigate("/subpage4", { state: { inputData } });
+   
   };
 
   return (
@@ -26,6 +37,7 @@ function Subpage2() {
             <label>Wallet name</label>
             <input
               type="text"
+              onChange={handleInputChange}
               className="border border-gray-500 rounded-xl px-2 py-2 w-[500px] outline-none"
             />
           </div>
