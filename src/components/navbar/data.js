@@ -18,6 +18,11 @@ export const data = [
     name: "Manage Human Resource",
     icon: icon3,
     link: "/manage-hr",
+    dropdown: [
+      { name: "Employees", link: "/subpage5" },
+      { name: "Approvers", link: "/gifts-vouchers/gift-card" },
+      { name: "Manage department & roles", link: "/gifts-vouchers/brand-voucher" },
+    ],
   },
   {
     id: 3,

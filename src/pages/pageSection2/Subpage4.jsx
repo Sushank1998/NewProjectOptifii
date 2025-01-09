@@ -1,5 +1,5 @@
 
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import HorizontalTimeline from '../PageSection/HorizontalTimeline'
 import { useState } from 'react';
 import { MdDriveFolderUpload } from "react-icons/md";
@@ -9,11 +9,22 @@ import { IoIosAdd } from "react-icons/io";
 
 function Subpage4() {
     const location = useLocation();
+    const navigate = useNavigate();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const inputData = location.state?.inputData || "";
   console.log("Subpage4", inputData);
+
+  const handleSubmit =()=>{
+    console.log("click",Date.now())
+    navigate("/Subpage3")
+  }
+
   return (
     <>
+    <p className="text-gray-500">
+    OptiFii gifts & rewards/{" "}
+    <span className="text-black"> Apply for gift card</span>
+  </p>
       <div className="w-100% bg-white h-auto mt-3 p-3 rounded-xl">
         <HorizontalTimeline />
       </div>
@@ -54,7 +65,9 @@ function Subpage4() {
       </div>
       </div>
       <div className='flex flex-wrap justify-between items-center mt-10'>
-        <div className='w-[332px] h-[195px]  bg-gradient-to-br from-[#3E0982] to-[#851472] rounded-xl flex justify-center items-center'>
+        <div 
+        onClick={handleSubmit}
+        className='w-[332px] h-[195px] cursor-pointer  bg-gradient-to-br from-[#3E0982] to-[#851472] rounded-xl flex justify-center items-center'>
             <h1 className='font-medium text-2xl text-white'> {inputData}</h1>
         </div>
       </div>

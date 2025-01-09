@@ -1,5 +1,5 @@
 
-import { Box, Stepper, Step, StepLabel, Typography } from "@mui/material";
+import { Box, Stepper, Step, StepLabel, StepConnector, Typography, styled, Radio } from "@mui/material";
 
 const steps = [
   {
@@ -19,17 +19,42 @@ const steps = [
   },
 ];
 
+// Custom connector
+const CustomConnector = styled(StepConnector)(() => ({
+  '& .MuiStepConnector-line': {
+    borderColor: '#6311CB', // Custom color for the horizontal line
+  },
+}));
+
+// Custom StepIcon component
+const StepIconComponent = ({ active, completed }) => {
+  return (
+    <Radio
+      checked={active}
+      disableRipple
+      color="primary"
+      sx={{
+        paddingTop: 0,
+        color: active || completed ? '#6311CB' : 'gray', // Custom color for active/completed step
+        '& .MuiSvgIcon-root': {
+          fontSize: 30,
+        },
+      }}
+    />
+  );
+};
+
 const HorizontalTimeline = () => {
   // Define the active step (you can change this based on state)
   const activeStep = 0; // Adjust to show the current step (0-based index)
 
   return (
-    <Box sx={{ width: "100%"}}>
-      <Stepper activeStep={activeStep} alternativeLabel>
+    <Box sx={{ width: "100%" }}>
+      <Stepper activeStep={activeStep} alternativeLabel connector={<CustomConnector />}>
         {steps.map((step, index) => (
           <Step key={index}>
-            <StepLabel>
-            <Typography
+            <StepLabel StepIconComponent={StepIconComponent}>
+              <Typography
                 variant="body1"
                 fontWeight={activeStep === index ? "lighter" : "normal"}
               >

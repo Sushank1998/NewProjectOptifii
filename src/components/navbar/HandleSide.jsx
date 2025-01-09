@@ -42,12 +42,12 @@ function HandleSide({ isExpanded, onToggle, navData }) {
       {isExpanded && hasDropdown && (
         <ul
           ref={dropdownRef}
-          className="absolute left-0 top-full ml-7 text-white rounded-lg w-48 z-50 bg-sideNavColor_5-bg shadow-lg"
+          className="absolute left-0 top-full ml-7 text-white rounded-lg w-48 z-50 shadow-lg hover:border-blue-500"
         >
           {navData.dropdown.map((item, index) => (
             <li
               key={index}
-              className="px-3 py-2 text-xs font-extralight cursor-pointer hover:bg-gray-700"
+              className="px-3 py-2 text-xs font-extralight cursor-pointer hover:bg-sideNavColor_5-bg"
             >
               <Link to={item.link}>{item.name}</Link>
             </li>

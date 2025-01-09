@@ -8,6 +8,7 @@ import Subpage2 from "../../pages/pageSection2/Subpage2";
 import Subpage3 from "../../pages/pageSection2/Subpage3";
 import Subpage4 from "../../pages/pageSection2/Subpage4";
 import Subpage5 from "../../pages/pageSection2/Subpage5";
+import Fullsheet from "../../pages/pageSection2/FullSheet";
 
 function Dashboard() {
 
@@ -23,7 +24,8 @@ function Dashboard() {
           <Route path="/subpage2" element={<Subpage2 />} />
           <Route path="/subpage3" element={<Subpage3 />} />
           <Route path="/subpage4" element={<Subpage4 />} />
-          <Route path="/subpage5" element={<Subpage5 />} />
+          <Route path="/fullsheet" element={<Fullsheet />} />
+          <Route path="/employee" element={<Subpage5 />} />
           </Routes>
         </main>
       </div>

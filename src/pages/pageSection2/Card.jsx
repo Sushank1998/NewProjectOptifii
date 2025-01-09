@@ -15,7 +15,7 @@ const ImageCard = ({card1}) => {
   };
   
   return (
-    <div className="max-w-md mx-auto w-[254px] h-[373px] bg-gradient-to-r from-[#1F1584] to-[#6311CB] shadow-lg rounded-lg overflow-hidden">
+    <div className="max-w-md mx-auto w-[280px] h-[373px] bg-gradient-to-r from-[#1F1584] to-[#6311CB] shadow-lg rounded-lg overflow-hidden">
     <div className="flex flex-col h-full">
       
       <div className="pl-4 pt-8">

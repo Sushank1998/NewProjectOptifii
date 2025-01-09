@@ -3,6 +3,8 @@ import { Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 import HorizontalTimeline from "../PageSection/HorizontalTimeline";
 import { CiCircleCheck } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
+import { AiOutlineExclamationCircle } from "react-icons/ai";
+import { RxCross2 } from "react-icons/rx";
 
 function Subpage2() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,6 +29,10 @@ function Subpage2() {
 
   return (
     <>
+    <p className="text-gray-500">
+            OptiFii gifts & rewards/{" "}
+            <span className="text-black"> Apply for gift card</span>
+          </p>
       <div className="w-100% bg-white h-auto mt-3 p-3 rounded-xl">
         <HorizontalTimeline />
       </div>
@@ -71,37 +77,37 @@ function Subpage2() {
             </div>
             <div>
               <h2 className="text-xl font-medium">Merchant transaction rule</h2>
-              <div className="flex flex-col">
-                <div className="flex justify-between gap-4">
-                  <div className="flex flex-col gap-2">
+              <div className="flex flex-col mt-3">
+                <div className="flex justify-between gap-4 ">
+                  <div className="flex flex-col gap-2 ">
                     <label>Transaction rule</label>
-                    <input
-                      type="text"
-                      className="border border-gray-500 rounded-xl px-2 py-2 outline-none"
-                    />
+                    <div className="w-90 h-10 border-2 rounded-md border-gray-400 flex justify-center items-center text-gray-700 gap-2 px-2 ">
+                    Either of them
+                    <AiOutlineExclamationCircle className="text-[#3725EA] w-5 h-5" />
+                    </div>
                   </div>
                   <div className="flex flex-col gap-2">
                     <label>Merchant category</label>
-                    <input
-                      type="text"
-                      className="border border-gray-500 rounded-xl px-2 py-2 outline-none"
-                    />
+                    <div className="w-[300px] h-10 border-2 rounded-md border-gray-400 flex items-center text-gray-700 gap-2 px-2 ">
+                    <div className="w-30 h-8 bg-[#efeefe] text-[#3725EA] flex justify-center items-center px-4 rounded-sm gap-2">Food<RxCross2 /></div>
+                    <div className="w-30 h-8 bg-[#efeefe] text-[#3725EA] flex justify-center items-center px-4 rounded-sm gap-2">Fuel<RxCross2 /></div>
+                    </div>
                   </div>
                 </div>
-                <div className="flex justify-between">
+                <div className="flex justify-between ">
                   <div className="flex flex-col gap-2">
                     <label>Transaction rule</label>
-                    <input
-                      type="text"
-                      className="border border-gray-500 rounded-xl px-2 py-2 outline-none"
-                    />
+                    <div className="w-90 h-10 border-2 rounded-md border-gray-400 flex justify-center items-center text-gray-700 gap-2 px-2 ">
+                    None of them
+                    <AiOutlineExclamationCircle className="text-[#3725EA] w-5 h-5" />
+                    </div>
                   </div>
                   <div className="flex flex-col gap-2">
                     <label>Merchant category</label>
-                    <input
-                      type="text"
-                      className="border border-gray-500 rounded-xl px-2 py-2 outline-none"
-                    />
+                    <div className="w-[300px] h-10 border-2 rounded-md border-gray-400 flex items-center text-gray-700 gap-2 px-2 ">
+                    <div className="w-30 h-8 bg-[#efeefe] text-[#3725EA] flex justify-center items-center px-4 rounded-sm gap-2">Food<RxCross2 /></div>
+                    <div className="w-30 h-8 bg-[#efeefe] text-[#3725EA] flex justify-center items-center px-4 rounded-sm gap-2">Fuel<RxCross2 /></div>
+                    </div>
                   </div>
                 </div>
               </div>

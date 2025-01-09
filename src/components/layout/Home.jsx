@@ -1,4 +1,3 @@
-import HorizontalTimeline from "../../pages/PageSection/HorizontalTimeline";
 import Page1 from "../../pages/pageSection2/Page1";
 
 function Home() {
