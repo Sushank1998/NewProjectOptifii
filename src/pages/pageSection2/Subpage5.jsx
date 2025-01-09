@@ -112,7 +112,7 @@ function Subpage5() {
         {listData.map((item,index)=>{
             return(
                 <div className="w-80% bg-white h-10 rounded-lg px-8 flex justify-between items-center   " key={index}>
-                    <p>{index+1}</p>
+                     <p>{index+1}</p>
                     <p>{item.Load_Status}</p>
                     <p>{item.date_time}</p>
                     <>{item.img? <img src={item.img} alt="user_img" className="w-30 h-5" /> : null}</>
