@@ -6,27 +6,34 @@ import { MdCheckBoxOutlineBlank } from "react-icons/md";
 function Subpage5() {
   const location = useLocation();
   const rawData = location.state?.data || {}; // Fallback to an empty object
-  console.log("row",rawData)
+
   const employeeData = rawData.Employees
-    ? rawData.Employees.split(";") // Split string into individual employee records
-        .map(row => {
-          const fields = row
-            .replace(/[\[\]]/g, "") // Remove square brackets
-            .trim()
-            .split(", "); // Split by comma and space
-          return {
-            Emp_Id: fields[0] || "",
-            Name: fields[1] || "",
-            Email_address: fields[2] || "",
-            Card_Number: fields[3] || "",
-            Card_balance: fields[4] || "",
-          };
-        })
+    ? rawData.Employees.split(";").map((row) => {
+        const fields = row
+          .replace(/[\[\]]/g, "") // Remove square brackets
+          .trim()
+          .split(", "); // Split by comma and space
+        return {
+          Emp_Id: fields[0] || "",
+          Name: fields[1] || "",
+          Email_address: fields[2] || "",
+          Card_Number: fields[3] || "",
+          Card_balance: fields[4] || "",
+        };
+      })
     : []; // Fallback to an empty array if no employees
-// console.log("ee",employeeData);
+
+  const otherData = Object.entries(rawData).filter(
+    ([key]) => key !== "Employees"
+  );
+
+  // Extract dynamic headers from employee data
+  const headers =
+    employeeData.length > 0 ? Object.keys(employeeData[0]) : [];
+
   return (
     <>
-      <p className="text-gray-500">
+       <p className="text-gray-500">
         OptiFii gifts & rewards /{" "}
         <span className="text-black"> Application status</span>
       </p>
@@ -53,34 +60,38 @@ function Subpage5() {
             {rawData['Order ID']}
           </span>
         </p>
-        <div className="flex justify-between items-center mt-3">
-          <div className="flex items-center bg-white border border-gray-300 rounded-lg focus-within:ring-2 flex-grow lg:flex-grow-0 lg:w-[36rem] sm:w-[16rem]">
-            <CiSearch className="w-6 h-6 ml-2 text-gray-500" />
-            <input
-              type="text"
-              placeholder="Search..."
-              className="px-4 py-2 outline-none flex-grow rounded-xl"
-            />
-          </div>
-          <button className="text-black border-2 flex gap-2 items-center border-gray-400 py-2 px-4 rounded">
-            <FiAlignCenter className="w-5 h-5" />
-            Filter
-            <FiChevronDown className="w-5 h-5" />
-          </button>
-        </div>
+     
       </div>
 
+      {/* Search and Filter */}
+      <div className="flex justify-between items-center mt-3">
+        <div className="flex items-center bg-white border border-gray-300 rounded-lg focus-within:ring-2 flex-grow lg:flex-grow-0 lg:w-[36rem] sm:w-[16rem]">
+          <CiSearch className="w-6 h-6 ml-2 text-gray-500" />
+          <input
+            type="text"
+            placeholder="Search..."
+            className="px-4 py-2 outline-none flex-grow rounded-xl"
+          />
+        </div>
+        <button className="text-black border-2 flex gap-2 items-center border-gray-400 py-2 px-4 rounded">
+          <FiAlignCenter className="w-5 h-5" />
+          Filter
+          <FiChevronDown className="w-5 h-5" />
+        </button>
+      </div>
+
+      {/* Employee Data Table */}
       <div className="w-full bg-white h-auto mt-3 py-3 rounded-xl">
-        {/* Grid Header */}
-        <div className="grid grid-cols-5 bg-gray-100 py-5 px-4 font-medium text-sm border-b border-gray-500 text-gray-500">
-          <div className="flex items-center justify-centers gap-2">
-            <MdCheckBoxOutlineBlank />
-            <p>Emp_Id</p>
-          </div>
-          <p>Name</p>
-          <p>Email Address</p>
-          <p>Card number</p>
-          <p>Card balance</p>
+        {/* Dynamic Grid Header */}
+        <div
+          className={`grid grid-cols-${headers.length} text-center bg-gray-100 py-5 px-4 font-medium text-sm border-b border-gray-500 text-gray-500`}
+        >
+          {headers.map((header, index) => (
+            <div key={index} className="flex items-center justify-center gap-2">
+              {header === "Emp_Id" ? <MdCheckBoxOutlineBlank /> : null}
+              <p>{header}</p>
+            </div>
+          ))}
         </div>
 
         {/* Render Rows Dynamically */}
@@ -88,16 +99,11 @@ function Subpage5() {
           employeeData.map((row, index) => (
             <div
               key={index}
-              className="grid grid-cols-5 py-2 px-4 mt-6 border-b text-sm border-gray-100 text-gray-600"
+              className={`grid grid-cols-${headers.length} text-center py-2 px-4 mt-6 border-b text-sm border-gray-100 text-gray-600`}
             >
-              <div className="flex items-center justify-centers gap-2">
-                <MdCheckBoxOutlineBlank />
-                <p>{row.Emp_Id}</p>
-              </div>
-              <p>{row.Name}</p>
-              <p>{row.Email_address}</p>
-              <p>{row.Card_Number}</p>
-              <p>{row.Card_balance}</p>
+              {headers.map((header, idx) => (
+                <p key={idx}>{row[header]}</p>
+              ))}
             </div>
           ))
         ) : (

@@ -148,7 +148,7 @@ function Subpage3() {
             Submit New Application
           </Button>
           <Button variant="contained" color="primary" onClick={handleSubmit}>
-            Check Status,
+            Check Status
           </Button>
         </DialogActions>
       </Dialog>

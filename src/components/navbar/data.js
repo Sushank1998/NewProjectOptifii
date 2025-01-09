@@ -19,7 +19,7 @@ export const data = [
     icon: icon3,
     link: "/manage-hr",
     dropdown: [
-      { name: "Employees", link: "/subpage5" },
+      { name: "Employees", link: "/employee" },
       { name: "Approvers", link: "/gifts-vouchers/gift-card" },
       { name: "Manage department & roles", link: "/gifts-vouchers/brand-voucher" },
     ],
