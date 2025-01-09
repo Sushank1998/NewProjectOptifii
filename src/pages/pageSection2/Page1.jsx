@@ -8,7 +8,7 @@ function Page1() {
 
   return (
     <div className="flex flex-col flex-wrap ">
- <h1 className="text-xl font-semibold">wellcome</h1>
+ <h1 className="text-xl font-semibold">Welcome</h1>
       
     </div>
   );
