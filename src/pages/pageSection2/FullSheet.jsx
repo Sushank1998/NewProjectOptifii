@@ -71,10 +71,10 @@ function Subpage6() {
         <p className="mt-5 text-gray-600 font-medium">Order Status:</p>
       </div>
 
-      <div className="w-full bg-white h-auto mt-3 py-9 px-7 rounded-xl">
+      <div className="w-full bg-white h-auto mt-3 py-7 px-7 rounded-xl">
         {/* Grid Header */}
         {headers.length > 0 ? (
-          <div className={`grid grid-cols-${headers.length} text-center bg-gray-100 py-5 px-4 font-medium text-sm border-b border-gray-500 text-gray-500`}>
+          <div className="grid grid-cols-7 justify-evenly items-center text-center py-2 px-4 bg-gray-100 font-medium text-sm border-b border-gray-500 text-gray-500">
             {headers.map((header, index) => (
               <p key={index} className="capitalize">
                 {header}
@@ -90,7 +90,7 @@ function Subpage6() {
           parsedData.map((row, index) => (
             <div
               key={index}
-              className={`grid grid-cols-${headers.length} text-center py-2 px-4 mt-6 border-b text-sm border-gray-100 text-gray-600`}
+              className="grid grid-cols-7 justify-evenly items-center text-center py-2 px-4  cursor-pointer hover:bg-slate-50 mt-6 border-b text-sm border-gray-100 text-gray-600"
               onClick={() => handleRow(row)}
             >
               {headers.map((header, idx) => (

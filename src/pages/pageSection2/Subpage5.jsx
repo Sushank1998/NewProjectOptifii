@@ -84,7 +84,7 @@ function Subpage5() {
       <div className="w-full bg-white h-auto mt-3 py-3 rounded-xl">
         {/* Dynamic Grid Header */}
         <div
-          className={`grid grid-cols-${headers.length} text-center bg-gray-100 py-5 px-4 font-medium text-sm border-b border-gray-500 text-gray-500`}
+          className={`flex grid-cols-${headers.length} justify-between text-start bg-gray-100 py-5 px-4 font-medium text-sm border-b border-gray-500 text-gray-500`}
         >
           {headers.map((header, index) => (
             <div key={index} className="flex items-center justify-center gap-2">
@@ -99,7 +99,7 @@ function Subpage5() {
           employeeData.map((row, index) => (
             <div
               key={index}
-              className={`grid grid-cols-${headers.length} text-center py-2 px-4 mt-6 border-b text-sm border-gray-100 text-gray-600`}
+              className={`flex grid-cols-${headers.length} justify-between text-start py-2 px-4 mt-6 border-b text-sm border-gray-100 text-gray-600`}
             >
               {headers.map((header, idx) => (
                 <p key={idx}>{row[header]}</p>
